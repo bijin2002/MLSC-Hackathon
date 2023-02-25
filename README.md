@@ -40,7 +40,7 @@ mail.py: This file contains the code for sending confirmation emails and product
 ## Results
 <img width="187" alt="image" src="https://user-images.githubusercontent.com/80200174/221349337-5e901a14-c48b-45f3-8fa3-90a5f2157955.png">
 
-
+### Access the bot by typing TrackMyOrder.Bot in Telegram and have fun using it ...
 ## The flow of the project is as follows:
 
 - The driver shares their GPS location with the bot.
