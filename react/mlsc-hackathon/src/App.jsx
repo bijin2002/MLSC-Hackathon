@@ -1,5 +1,5 @@
-import Form from "./components/Form"
-import Submit from './components/submit'
+import Form from "./components/form"
+
 function App() {
 
   return (
