@@ -56,14 +56,32 @@ export default function ColorSelector() {
     upper: '',
     sole: '',
     color: '',
-    brand: '',
-    type: '',
-    inspirationalShoes: ''
   });
+const [brand1, setBrand1] = useState({
+  brand: ''
+});
+const [type1, setType1] = useState({
+  type: ''
+});
+const [inspirationalShoes1, setInspirationalShoes1] = useState({
+  inspirationalShoes: ''
+});
 
   const [image, setImage] = useState('');
   const handleSelect = (key, value) => {
     setSelectedColors(prevState => ({
+      ...prevState,
+      [key]: value
+    }));
+    setBrand1(prevState => ({
+      ...prevState,
+      [key]: value
+    }));
+    setType1(prevState => ({
+      ...prevState,
+      [key]: value
+    }));
+    setInspirationalShoes1(prevState => ({
       ...prevState,
       [key]: value
     }));
@@ -115,6 +133,58 @@ export default function ColorSelector() {
        
         </Dropdown>
       ))}
+ 
+      {Object.keys(brand1).map((key) => (
+        <Dropdown key={key} onSelect={(value) => handleSelect(key, value)}>
+          <Dropdown.Toggle variant="success" id={`dropdown-${key}`}>
+            {`Select a ${key} color`}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            {brand.map((color) => (
+              <Dropdown.Item key={color} eventKey={color}>
+                {color}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+       
+        </Dropdown>
+      ))}
+      {Object.keys(type1).map((key) => (
+        <Dropdown key={key} onSelect={(value) => handleSelect(key, value)}>
+          <Dropdown.Toggle variant="success" id={`dropdown-${key}`}>
+            {`Select a ${key} color`}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            {type.map((color) => (
+              <Dropdown.Item key={color} eventKey={color}>
+                {color}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+       
+        </Dropdown>
+      ))}
+
+      {Object.keys(inspirationalShoes1).map((key) => (
+        <Dropdown key={key} onSelect={(value) => handleSelect(key, value)}>
+          <Dropdown.Toggle variant="success" id={`dropdown-${key}`}>
+            {`Select a ${key} color`}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            {inspirationalShoes.map((color) => (
+              <Dropdown.Item key={color} eventKey={color}>
+                {color}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+       
+        </Dropdown>
+      ))}
+                    
+
     </>}
       {image && <img src={image} alt="Generated shoe" />}
       <Button onClick={handleSubmit}>Submit</Button>
